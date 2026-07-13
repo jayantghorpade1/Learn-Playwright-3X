@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420">
+  <rect width="900" height="420" fill="#f8fafc"/>
+  <text x="450" y="42" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#0f172a">Literals vs Identifiers</text>
+
+  <rect x="70" y="90" width="220" height="120" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="180" y="130" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#1d4ed8">Source Code</text>
+  <text x="180" y="165" text-anchor="middle" font-family="Arial" font-size="16" fill="#0f172a">Human-written test code</text>
+
+  <rect x="340" y="90" width="220" height="120" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="450" y="130" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#15803d">Literal</text>
+  <text x="450" y="165" text-anchor="middle" font-family="Arial" font-size="16" fill="#0f172a">Fixed value</text>
+
+  <rect x="610" y="90" width="220" height="120" rx="14" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="720" y="130" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#b45309">Identifier</text>
+  <text x="720" y="165" text-anchor="middle" font-family="Arial" font-size="16" fill="#0f172a">Name for value</text>
+
+  <line x1="290" y1="150" x2="340" y2="150" stroke="#1e3a8a" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="560" y1="150" x2="610" y2="150" stroke="#1e3a8a" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <text x="450" y="265" text-anchor="middle" font-family="Arial" font-size="20" fill="#334155">Examples</text>
+  <text x="450" y="300" text-anchor="middle" font-family="Arial" font-size="17" fill="#334155">Literal → "#login-button" | Identifier → loginSelector</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1e3a8a"/>
+    </marker>
+  </defs>
+</svg>

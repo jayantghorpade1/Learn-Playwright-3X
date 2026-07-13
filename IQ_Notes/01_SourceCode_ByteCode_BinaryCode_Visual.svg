@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420">
+  <rect width="980" height="420" fill="#f8fafc"/>
+  <text x="490" y="42" text-anchor="middle" font-family="Arial" font-size="26" font-weight="bold" fill="#0f172a">Execution Layers</text>
+
+  <rect x="60" y="110" width="240" height="150" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="180" y="160" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#1d4ed8">Source Code</text>
+  <text x="180" y="195" text-anchor="middle" font-family="Arial" font-size="16" fill="#0f172a">Readable</text>
+
+  <rect x="370" y="110" width="240" height="150" rx="14" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+  <text x="490" y="160" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#4338ca">Byte Code</text>
+  <text x="490" y="195" text-anchor="middle" font-family="Arial" font-size="16" fill="#0f172a">Runtime form</text>
+
+  <rect x="680" y="110" width="240" height="150" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="800" y="160" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold" fill="#15803d">Binary Code</text>
+  <text x="800" y="195" text-anchor="middle" font-family="Arial" font-size="16" fill="#0f172a">Hardware ready</text>
+
+  <line x1="300" y1="185" x2="370" y2="185" stroke="#1e3a8a" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="610" y1="185" x2="680" y2="185" stroke="#1e3a8a" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <text x="490" y="310" text-anchor="middle" font-family="Arial" font-size="18" fill="#334155">Human → Runtime → Hardware</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1e3a8a"/>
+    </marker>
+  </defs>
+</svg>
