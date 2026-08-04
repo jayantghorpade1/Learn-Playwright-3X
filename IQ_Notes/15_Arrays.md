@@ -1,93 +1,151 @@
 # 15. Arrays in JavaScript
 
-Based on [chapter_09_Arrays/46_Arrays_Basics.js](../chapter_09_Arrays/46_Arrays_Basics.js), [chapter_09_Arrays/47_Array_Functions.js](../chapter_09_Arrays/47_Array_Functions.js), [chapter_09_Arrays/49_Array_Accessing_Modifying.js](../chapter_09_Arrays/49_Array_Accessing_Modifying.js), and [chapter_09_Arrays/50_Array_Adding_Removing_Elements.js](../chapter_09_Arrays/50_Array_Adding_Removing_Elements.js)
+Based on the examples in [chapter_09_Arrays](../chapter_09_Arrays).
 
 ## 1) What is an Array?
 
-An array is used to store multiple values in one variable.
+An array stores multiple values in one variable.
 
 ```js
 const fruits = ["Apple", "Banana", "Mango"];
+console.log(fruits[0]); // Apple
+```
+
+## 2) How to Create an Array
+
+```js
+// 1. Array literal (most common)
+const colors = ["Red", "Green", "Blue"];
+
+// 2. Array constructor
+const nums = new Array(1, 2, 3);
+
+// 3. Array.of()
+const values = Array.of(10, 20, 30);
 ```
 
 ### Important points
-- Arrays are zero-based: first element index is `0`.
-- They are mutable, so values can be changed.
-- They can store different data types in one array.
+- Array index starts from 0.
+- `length` gives the total number of elements.
+- If you access a missing index, you get `undefined`.
 
-```js
-const data = [10, "JavaScript", true, null];
-```
+## 3) Access and Modify Elements
 
-## 2) Array Concepts Most Asked in Interviews
-
-### Indexing
 ```js
 const cars = ["BMW", "Tata", "Mahindra"];
-console.log(cars[0]); // BMW
-console.log(cars[2]); // Mahindra
+console.log(cars[0]);       // BMW
+console.log(cars.at(-1));  // Mahindra
+
+cars[1] = "Honda";         // modify value
+console.log(cars);         // ["BMW", "Honda", "Mahindra"]
 ```
 
-### Accessing last element
+## 4) Add and Remove Elements
+
 ```js
-console.log(cars.at(-1)); // Mahindra
+let arr = [1, 2, 3];
+
+arr.push(4);      // add at the end
+arr.pop();        // remove from the end
+arr.unshift(0);   // add at the start
+arr.shift();      // remove from the start
 ```
 
-### Modify value
-```js
-cars[1] = "Honda";
-console.log(cars); // ["BMW", "Honda", "Mahindra"]
-```
+## 5) Insert, Replace, or Remove in the Middle
 
-### Length
 ```js
-console.log(cars.length); // 3
-```
-
-## 3) Most Used Array Methods
-
-### `push()` → add at the end
-```js
-const arr = [1, 2, 3];
-arr.push(4);
-console.log(arr); // [1, 2, 3, 4]
-```
-
-### `pop()` → remove from the end
-```js
-arr.pop();
-console.log(arr); // [1, 2, 3]
-```
-
-### `unshift()` → add at the beginning
-```js
-arr.unshift(0);
-console.log(arr); // [0, 1, 2, 3]
-```
-
-### `shift()` → remove from the beginning
-```js
-arr.shift();
-console.log(arr); // [1, 2, 3]
-```
-
-### `splice()` → add/remove/replace anywhere
-```js
-const fruits = ["Apple", "Banana", "Orange"];
+let fruits = ["Apple", "Banana", "Orange"];
 fruits.splice(1, 1, "Mango");
 console.log(fruits); // ["Apple", "Mango", "Orange"]
 ```
 
-## 4) Interview / Automation Tips
+- `splice(start, deleteCount, item...)` changes the original array.
 
-- Arrays are heavily used in test automation for storing test data, expected results, and UI element values.
-- `splice()` changes the original array; `slice()` does not.
-- `push()` and `pop()` are commonly used for stack-style operations.
-- `length` is very important for loops and validations.
+## 6) Search in an Array
 
-## 5) Short Summary
+```js
+let result = ["Pass", "Fail", "Skip", "Blocked"];
+console.log(result.indexOf("Skip")); // 2
+console.log(result.lastIndexOf("Fail")); // 1
+console.log(result.includes("Pass")); // true
+```
 
-- Array = collection of values in one variable.
-- Use index to access values.
-- Use `push`, `pop`, `unshift`, `shift`, and `splice` for common operations.
-- Very important for JavaScript interviews and automation scripting.
+## 7) Find Elements
+
+```js
+let numbers = [10, 20, 30, 40, 50];
+
+console.log(numbers.find(x => x > 20));       // 30
+console.log(numbers.findIndex(x => x > 20));  // 2
+console.log(numbers.findLast(x => x > 20));   // 50
+console.log(numbers.findLastIndex(x => x > 20)); // 4
+```
+
+## 8) Loop Through an Array
+
+```js
+let names = ["A", "B", "C"];
+
+for (let i = 0; i < names.length; i++) {
+  console.log(names[i]);
+}
+
+for (let name of names) {
+  console.log(name);
+}
+
+names.forEach((name, index) => {
+  console.log(index, name);
+});
+```
+
+## 9) Transform an Array
+
+```js
+let nums = [3, 1, 2];
+
+let doubled = nums.map(n => n * 2);      // [6, 2, 4]
+let filtered = nums.filter(n => n > 1);  // [3, 2]
+let total = nums.reduce((sum, n) => sum + n, 0); // 6
+```
+
+## 10) Slice, Concat, Sort
+
+```js
+let a = [1, 2];
+let b = [3, 4];
+
+console.log(a.concat(b)); // [1, 2, 3, 4]
+console.log(a.slice(0, 1)); // [1]
+
+let nums2 = [3, 1, 2];
+nums2.sort((a, b) => a - b);
+console.log(nums2); // [1, 2, 3]
+```
+
+## 11) Check and Copy an Array
+
+```js
+let arr2 = [1, 2, 3];
+console.log(Array.isArray(arr2)); // true
+
+let copy = [...arr2]; // shallow copy
+console.log(copy);
+```
+
+## 12) Destructuring
+
+```js
+let [first, ...rest] = ["a", "b", "c"];
+console.log(first); // a
+console.log(rest);  // ["b", "c"]
+```
+
+## 13) Interview Notes
+
+- `splice()` changes the original array.
+- `slice()` creates a new array and does not change the original.
+- `push()` and `pop()` work at the end.
+- `unshift()` and `shift()` work at the start.
+- `map()`, `filter()`, and `reduce()` are very common interview topics.
+- `find()` returns the first matching value, while `filter()` returns all matching values.
