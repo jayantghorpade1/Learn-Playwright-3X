@@ -1,6 +1,6 @@
 # Interview Q&A for JavaScript + Playwright Learning Notes
 
-This file is based on the examples available in the project folders such as [chapter_02_Java_Concepts](../chapter_02_Java_Concepts), [chapter_03_Identifiers](../chapter_03_Identifiers), [chapter_04_Literals](../chapter_04_Literals), [chapter_05_Operators](../chapter_05_Operators), [chapter_06_Switch_Statement](../chapter_06_Switch_Statement), [chapter_07_If_Else_Statements](../chapter_07_If_Else_Statements), [chapter_08_Loops](../chapter_08_Loops), and [chapter_09_Arrays](../chapter_09_Arrays).
+This file is based on the examples available in the project folders such as [chapter_02_Java_Concepts](../chapter_02_Java_Concepts), [chapter_03_Identifiers](../chapter_03_Identifiers), [chapter_04_Literals](../chapter_04_Literals), [chapter_05_Operators](../chapter_05_Operators), [chapter_06_Switch_Statement](../chapter_06_Switch_Statement), [chapter_07_If_Else_Statements](../chapter_07_If_Else_Statements), [chapter_08_Loops](../chapter_08_Loops), [chapter_09_Arrays](../chapter_09_Arrays), and [chapter_10_Functions](../chapter_10_Functions).
 
 ## 1. JavaScript Basics
 
@@ -256,7 +256,166 @@ console.log(first); // A
 
 ---
 
-## 8. Why These Topics Matter in Playwright
+## 8. Functions in JavaScript
+
+### Q29. What is a function in JavaScript?
+**Answer:** A function is a reusable block of code that performs a specific task.
+
+```js
+function greet() {
+  console.log("Hello");
+}
+
+greet();
+```
+
+### Q30. What is the difference between a parameter and an argument?
+**Answer:**
+- A parameter is a variable declared in the function definition.
+- An argument is the actual value passed when the function is called.
+
+```js
+function add(a, b) { // a and b are parameters
+  return a + b;
+}
+
+console.log(add(2, 3)); // 2 and 3 are arguments
+```
+
+### Q31. What is the use of `return` in a function?
+**Answer:** `return` sends a value back to the caller.
+
+```js
+function square(num) {
+  return num * num;
+}
+
+console.log(square(4)); // 16
+```
+
+### Q32. What is a function declaration?
+**Answer:** A function declaration defines a function using the `function` keyword.
+
+```js
+function greetUser() {
+  console.log("Welcome!");
+}
+```
+
+### Q33. What is a function expression?
+**Answer:** A function expression assigns a function to a variable.
+
+```js
+const greet = function(name) {
+  return `Hello, ${name}`;
+};
+```
+
+### Q34. What is an arrow function?
+**Answer:** An arrow function is a shorter syntax for writing functions.
+
+```js
+const multiply = (a, b) => a * b;
+console.log(multiply(2, 4)); // 8
+```
+
+### Q35. What are default parameters?
+**Answer:** Default parameters provide fallback values if an argument is not provided.
+
+```js
+function welcome(name = "Guest") {
+  return `Hello, ${name}`;
+}
+
+console.log(welcome()); // Hello, Guest
+```
+
+### Q36. What is a callback function?
+**Answer:** A callback function is passed as an argument to another function and executed later.
+
+```js
+function greetLater(name, callback) {
+  callback(name);
+}
+
+greetLater("Amit", function(n) {
+  console.log(`Hello, ${n}`);
+});
+```
+
+### Q37. What is an IIFE?
+**Answer:** An IIFE is an Immediately Invoked Function Expression that runs as soon as it is defined.
+
+```js
+(function () {
+  console.log("Runs immediately");
+})();
+```
+
+### Q38. What is hoisting in functions?
+**Answer:** Hoisting allows function declarations to be called before they are defined in code.
+
+```js
+showMessage();
+
+function showMessage() {
+  console.log("Hi");
+}
+```
+
+### Q39. What is the difference between a normal function and an arrow function?
+**Answer:**
+- Normal functions have their own `this` behavior.
+- Arrow functions inherit `this` from the surrounding scope.
+
+```js
+const obj = {
+  value: 10,
+  show: function() {
+    console.log(this.value);
+  },
+  showArrow: () => {
+    console.log(this.value);
+  }
+};
+```
+
+### Q40. Why are functions important in Playwright?
+**Answer:** Functions help make test scripts reusable and cleaner. Common actions like login, navigation, and assertion logic can be placed inside functions.
+
+```js
+function login(username, password) {
+  console.log(`Logging in as ${username}`);
+  return true;
+}
+
+login("admin", "1234");
+```
+
+### Function Flow Diagram
+
+```mermaid
+flowchart TD
+A[Start] --> B[Function is defined]
+B --> C[Arguments are passed]
+C --> D[Function body executes]
+D --> E{Return value?}
+E -->|Yes| F[Value returned to caller]
+E -->|No| G[Function ends]
+F --> H[Program continues]
+G --> H
+```
+
+### Quick Revision Tips
+- Learn the syntax of function declaration, expression, and arrow function.
+- Understand the difference between `parameter` and `argument`.
+- Remember that `return` sends back a value.
+- Practice callback functions and IIFE concepts.
+- Know why functions are useful in automation and Playwright.
+
+---
+
+## 9. Why These Topics Matter in Playwright
 
 ### Q29. Why are loops important in automation?
 **Answer:** Loops help repeat the same action many times, such as checking multiple rows or opening several pages.
@@ -266,7 +425,7 @@ console.log(first); // A
 
 ---
 
-## 9. Final Interview Tips
+## 10. Final Interview Tips
 
 - Practice writing small code examples from memory.
 - Be clear about the difference between value comparison and type comparison.
